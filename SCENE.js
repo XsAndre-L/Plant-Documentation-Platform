@@ -1,4 +1,5 @@
-BABYLON.GLTFFileLoader.IncrementalLoading = false;
+//BABYLON.GLTFFileLoader.IncrementalLoading = false;
+
 
         var canvas = document.getElementById("renderCanvas");
 
@@ -34,26 +35,37 @@ BABYLON.GLTFFileLoader.IncrementalLoading = false;
             return scene;
         };
 
+        
+        let mesh1,mesh2;
+        var Meshes = [mesh1];
+        let P_meshName = ["Orchid.glb","OrchidPlant.glb"]
+
         var createScene = function (scene, Canvas) {
             scene.clearColor = new BABYLON.Color3.Black();
-            BABYLON.SceneLoader.ImportMeshAsync(
-                undefined, 
-                "Assets/Models/", 
-                "Orchid.glb", 
-                scene, 
-                function (
-                    meshes, 
-                    particleSystems,
-                    skeletons,
-                    animationList
-                ) {
-                    scene.createDefaultCameraOrLight(true);
-                    scene.activeCamera.attachControl(Canvas, true);
-                }
-            );
+            
+            for (let index = 0; index < Meshes.length; index++) {
+                
+                Meshes[index] = BABYLON.SceneLoader.ImportMesh(
+                    null, 
+                    "Assets/Models/", 
+                    P_meshName[index], 
+                    scene, 
+                    function (
+                        meshes,
+                        materials
+                    ) {
+                        scene.createDefaultCameraOrLight(true);
+                        scene.activeCamera.attachControl(Canvas, true);
+                        //meshes[0].scaling.x = 20;
+                        //materials[0].isVisible = false;
+                        Meshes[index] = meshes[0];
+                    }
+                );
+            }
+
+            
             return scene;
         };
-
 
         engine = createDefaultEngine();
         
@@ -61,16 +73,22 @@ BABYLON.GLTFFileLoader.IncrementalLoading = false;
         if (!engine) throw 'engine should not be null.';
         scene = createDefaultScene(scene);
         scene = createScene(scene, canvas);
+        
         scene.environmentTexture = null;
+
+        
+       
+        //Meshes[0].isVisible = false;
 
         sceneToRender = scene;
 
-
-        // Our built-in 'ground' shape. Params: name, width, depth, subdivs, scene
+       
         
-
+        //meshes[0].setEnabled(false);
+    
         // Start rendering the scene based on the engine render loop.
         engine.runRenderLoop(function () {
+            
             if (sceneToRender) {
                 sceneToRender.render();
                 //console.log("RUNNING");
