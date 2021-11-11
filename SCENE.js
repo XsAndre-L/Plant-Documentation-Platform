@@ -67,19 +67,21 @@
             var buttonbox = document.createElement('div');
             buttonbox.id = "buttonbox";
             buttonbox.style.position = "absolute";
-            buttonbox.style.justifyContent = "center";
+            //buttonbox.style.justifyContent = "center";
             //buttonbox.style. = "center";
-            buttonbox.style.bottom = "60px";
-            buttonbox.style.left = "40%";
+            buttonbox.style.width = "100%";
+            buttonbox.style.height = "5%";
+            buttonbox.style.marginBlock = "30px auto";
+            buttonbox.style.bottom = "1%";
+            //buttonbox.style.left = "50%";
             //buttonbox.style.right = "30%";
             //buttonbox.style.border = "5pt inset white";
             //buttonbox.style.padding = "2pt";
             //buttonbox.style.paddingRight = "2pt";
-            buttonbox.style.width = "500px";
-            buttonbox.style.height = "50px";
+            
             //buttonbox.style.display = "block";
             buttonbox.style.columnCount = "2";
-            //buttonbox.style.textAlign = "center";
+            buttonbox.style.textAlign = "center";
             
             document.body.appendChild(buttonbox);
 
@@ -88,11 +90,11 @@
             buttonbox.appendChild(b8);
             b8.id = "setLateralLeft";
             b8.style.borderRadius = "10px";
-            b8.textContent = "<";
+            b8.textContent = "<<";
             b8.style.display = "block";
             b8.style.width = "100%";
             b8.style.height = "100%";
-            b8.style.fontSize = "1.1em";
+            b8.style.fontSize = "2.1em";
             b8.onclick = function() {
                 CurrMesh = 1;
             };
@@ -101,11 +103,11 @@
             buttonbox.appendChild(b2);
             b2.id = "setLateralRight";
             b2.style.borderRadius = "10px";
-            b2.textContent = ">";
+            b2.textContent = ">>";
             b2.style.display = "block";
             b2.style.width = "100%";
             b2.style.height = "100%";
-            b2.style.fontSize = "1.1em";
+            b2.style.fontSize = "2.1em";
             b2.onclick = function() {
                 CurrMesh = 3;
             };
