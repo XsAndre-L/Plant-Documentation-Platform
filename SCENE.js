@@ -37,7 +37,7 @@
 
         
         let mesh1,mesh2;
-        var Meshes = [mesh1,mesh2];
+        var Meshes = [mesh1];
         let P_meshName = ["Orchid.glb","OrchidPlant.glb"]
 
         var createScene = function (scene, Canvas) {
@@ -48,7 +48,7 @@
                 Meshes[index] = BABYLON.SceneLoader.ImportMesh(
                     null, 
                     "Assets/Models/", 
-                    P_meshName[1], 
+                    P_meshName[index], 
                     scene, 
                     function (
                         meshes,
