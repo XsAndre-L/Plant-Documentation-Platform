@@ -98,6 +98,7 @@ var createScene = function (scene, Canvas) {
     b2.onclick = function () {
         if(CurrMesh + 2 <= 5)
         {
+            //Test
             CurrMesh += 2;
         }
     };
