@@ -47,7 +47,7 @@ var createScene = function (scene: BABYLON.Scene, Canvas:any) {
         
             BABYLON.SceneLoader.ImportMesh(
                 null,
-                "../Assets/Models/",
+                "Assets/Models/",
                 P_meshName[index],
                 scene,
                 function (
