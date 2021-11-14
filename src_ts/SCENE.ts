@@ -47,8 +47,8 @@ var createScene = function (scene: BABYLON.Scene, Canvas:any) {
         
             BABYLON.SceneLoader.ImportMesh(
                 null,
-                //"https://xsandre-l.github.io/Test/Assets/Models/",//Local
-                "https://xsandre-l.github.io/Assets/Models/",//non-Local
+                "https://xsandre-l.github.io/Test/Assets/Models/",//Local
+                //"https://xsandre-l.github.io/Assets/Models/",//non-Local
                 P_meshName[index],
                 scene,
                 function (
