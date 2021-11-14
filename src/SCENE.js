@@ -25,7 +25,7 @@ var createScene = function (scene, Canvas) {
     //scene.clearColor = new BABYLON.Color3.Black();
     scene.clearColor = new BABYLON.Color4(0, 0, 0, 1);
     for (let index = 0; index < Meshes.length; index++) {
-        BABYLON.SceneLoader.ImportMesh(null, "Assets/Models/", P_meshName[index], scene, function (meshes, materials) {
+        BABYLON.SceneLoader.ImportMesh(null, "Test/Assets/Models/", P_meshName[index], scene, function (meshes, materials) {
             var _a;
             scene.createDefaultCameraOrLight(true);
             //scene.activeCamera.attachControl(Canvas, true);
