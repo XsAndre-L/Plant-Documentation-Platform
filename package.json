@@ -1,4 +1,5 @@
 {
+  "homepage": "https://xsandre-l.github.io/Test",
   "dependencies": {
     "@babylonjs/core": "^4.2.0",
     "babylonjs": "^4.2.0",
