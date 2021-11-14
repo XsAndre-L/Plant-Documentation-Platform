@@ -26,7 +26,7 @@ var createScene = function (scene, Canvas) {
     scene.clearColor = new BABYLON.Color4(0, 0, 0, 1);
     for (let index = 0; index < Meshes.length; index++) {
         BABYLON.SceneLoader.ImportMesh(null, 
-        //"Assets/Models/",//Local
+        //"https://xsandre-l.github.io/Test/Assets/Models/",//Local
         "https://xsandre-l.github.io/Assets/Models/", //non-Local
         P_meshName[index], scene, function (meshes, materials) {
             
