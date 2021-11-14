@@ -27,7 +27,7 @@ var createScene = function (scene, Canvas) {
     for (let index = 0; index < Meshes.length; index++) {
         BABYLON.SceneLoader.ImportMesh(null, 
         //"Assets/Models/",//Local
-        "/Assets/Models/", //non-Local
+        "/Test/Assets/Models/", //non-Local
         P_meshName[index], scene, function (meshes, materials) {
             
             var _a;
