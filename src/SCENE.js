@@ -25,14 +25,9 @@ var createScene = function (scene, Canvas) {
     //scene.clearColor = new BABYLON.Color3.Black();
     scene.clearColor = new BABYLON.Color4(0, 0, 0, 1);
     for (let index = 0; index < Meshes.length; index++) {
-<<<<<<< HEAD
-        BABYLON.SceneLoader.ImportMesh(null, 
-        //"Assets/Models/",//Local
-        "https://xsandre-l.github.io/Test/Assets/Models/", //non-Local
+        BABYLON.SceneLoader.ImportMesh(null, "Assets/Models/", //Local
+        //"https://xsandre-l.github.io/Test/Assets/Models/",//non-Local
         P_meshName[index], scene, function (meshes, materials) {
-=======
-        BABYLON.SceneLoader.ImportMesh(null, "Test/Assets/Models/", P_meshName[index], scene, function (meshes, materials) {
->>>>>>> 089419be95ab1127ae84fe4ad5782ae7b96b8a97
             var _a;
             scene.createDefaultCameraOrLight(true);
             //scene.activeCamera.attachControl(Canvas, true);
