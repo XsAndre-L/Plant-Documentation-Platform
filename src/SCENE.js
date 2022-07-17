@@ -1,5 +1,8 @@
 const canvas = document.getElementById("renderCanvas");
-const engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
+const engine = new BABYLON.Engine(canvas, true, {
+    preserveDrawingBuffer: true,
+    stencil: true,
+});
 let scene = new BABYLON.Scene(engine);
 let sceneToRender = null;
 var createDefaultEngine = function () {
@@ -13,28 +16,33 @@ var createDefaultScene = function (scene) {
     //scene = new BABYLON.Scene(engine);
     var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
     var camera = new BABYLON.ArcRotateCamera("camera1", 
-    // -(Math.PI / 2), 
-    // Math.PI / 2, 
+    // -(Math.PI / 2),
+    // Math.PI / 2,
     BABYLON.Tools.ToRadians(45), BABYLON.Tools.ToRadians(45), 30, new BABYLON.Vector3(0, 5, 0), scene);
     return scene;
 };
-var mesh1, mesh2, mesh3;
-var Meshes = [mesh1, mesh2, mesh3];
-let P_meshName = ["Orchid.glb", "OrchidPlant.glb", "SlipperOrchid.glb"];
+var mesh1, mesh2, mesh3, mesh4;
+var Meshes = [mesh1, mesh2, mesh3, mesh4];
+let P_meshName = [
+    "Orchid.glb",
+    "OrchidPlant.glb",
+    "SlipperOrchid.glb",
+    "Cactus_01.glb",
+];
 var createScene = function (scene, Canvas) {
     //scene.clearColor = new BABYLON.Color3.Black();
     scene.clearColor = new BABYLON.Color4(0, 0, 0, 1);
     for (let index = 0; index < Meshes.length; index++) {
-        BABYLON.SceneLoader.ImportMesh(null, "https://xsandre-l.github.io/Test/Assets/Models/", //Local
-        //"https://xsandre-l.github.io/Assets/Models/",//non-Local
+        BABYLON.SceneLoader.ImportMesh(null, 
+        // "/Assets/Models/",//Local
+        "https://xsandre-l.github.io/Plant-Documentation-Platform/Assets/Models/", //non-Local
         P_meshName[index], scene, function (meshes, materials) {
             var _a;
             scene.createDefaultCameraOrLight(true);
-            //scene.activeCamera.attachControl(Canvas, true);
             (_a = scene._activeCamera) === null || _a === void 0 ? void 0 : _a.attachControl(Canvas, true);
         });
     }
-    var buttonbox = document.createElement('div');
+    var buttonbox = document.createElement("div");
     buttonbox.id = "buttonbox";
     buttonbox.style.position = "absolute";
     buttonbox.style.width = "100%";
@@ -43,7 +51,7 @@ var createScene = function (scene, Canvas) {
     buttonbox.style.columnCount = "2";
     buttonbox.style.textAlign = "center";
     document.body.appendChild(buttonbox);
-    var b8 = document.createElement('button');
+    var b8 = document.createElement("button");
     buttonbox.appendChild(b8);
     b8.id = "setLateralLeft";
     b8.style.borderRadius = "10px";
@@ -59,7 +67,7 @@ var createScene = function (scene, Canvas) {
             CurrMesh -= 2;
         }
     };
-    var b2 = document.createElement('button');
+    var b2 = document.createElement("button");
     buttonbox.appendChild(b2);
     b2.id = "setLateralRight";
     b2.style.borderRadius = "10px";
@@ -71,7 +79,7 @@ var createScene = function (scene, Canvas) {
     b2.style.backgroundColor = "#3C4043";
     b2.style.color = "#DCDCDC";
     b2.onclick = function () {
-        if (CurrMesh + 2 <= 5) {
+        if (CurrMesh + 2 <= 7) {
             //Test
             CurrMesh += 2;
         }
@@ -80,7 +88,7 @@ var createScene = function (scene, Canvas) {
 };
 createDefaultEngine();
 if (!engine)
-    throw 'engine should not be null.';
+    throw "engine should not be null.";
 scene = createDefaultScene(scene);
 scene = createScene(scene, canvas);
 scene.environmentTexture = null;
